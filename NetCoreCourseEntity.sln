@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreCourseEntity", "NetCoreCourseEntity\NetCoreCourseEntity.csproj", "{EF260682-F5D9-4C98-B1E9-726936897FF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF260682-F5D9-4C98-B1E9-726936897FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF260682-F5D9-4C98-B1E9-726936897FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF260682-F5D9-4C98-B1E9-726936897FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF260682-F5D9-4C98-B1E9-726936897FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CCF4CD6-DA54-49B7-937A-31F18A077E10}
+	EndGlobalSection
+EndGlobal

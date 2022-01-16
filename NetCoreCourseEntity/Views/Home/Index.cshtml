@@ -1,0 +1,90 @@
+﻿@model CategoryViewModel
+
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="container justify-content-between">
+                <div class="row ">
+                    @foreach (var item in Model.CategoryCourses)
+                    {
+                        <div class="card col-md-3 mt-2 mx-2" style="width: 18rem;">
+                            <div class="float-right">
+                                <button id="Close" type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <img class="card-img-top" src=@item.CourseUrl alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.CorseTitle</h5>
+                                <p class="card-text">@item.CourseContent</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">         
+            <form id="addForm" name="AddForm" class="form-check-inline my-2 my-lg-2">
+                <input class="form-control mr-sm-2" type="text" name="Title" placeholder="Category Add" aria-label="Search">
+                <button id="addButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Ekle</button>
+            </form>
+            <div id="categoryList" class="list-group">
+                @foreach (var item in Model.CategoryCourses)
+                {
+                    <a href="#" class="list-group-item list-group-item-action disabled">@item.CorseTitle</a>
+                }
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+@section scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#addForm").on("submit", function (event) {
+                event.preventDefault(); // formu durdur.
+
+
+
+                const param = {
+                    Title: AddForm.Title.value
+                };
+
+                console.log("param", param)
+                $.ajax({
+                    method: 'Post',
+                    url: '/send-course',
+                    data: JSON.stringify(param),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        // <a href="#" class="list-group-item list-group-item-action disabled"></a>
+                        const listTemplate = `
+                                     <a href="#" class="list-group-item list-group-item-action disabled">${AddForm.Title.value}</a>
+                                    `;
+                        $('#categoryList').prepend(listTemplate);
+                        alert(response?.message);
+                        console.log("response", response)
+                        $('#addForm').trigger("reset");
+                    },
+                    error: function (err) {
+                        // throw new exception fırlatırsak zaten buraya düşecek.
+                        console.log('err', err);
+                    }
+                })
+
+            })
+        })
+
+
+    </script>
+
+}

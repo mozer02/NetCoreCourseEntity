@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/site/all.min.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+
+    @* Navbar *@
+    <bs-navbar aktif-sayfa="1" toplam-sayfa="3" resim="e"></bs-navbar>
+    
+
+    @RenderSection("content", false)
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/site/all.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>
