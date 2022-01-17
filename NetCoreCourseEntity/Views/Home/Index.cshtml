@@ -9,7 +9,7 @@
                     {
                         <div class="card col-md-3 mt-2 mx-2" style="width: 18rem;">
                             <div class="float-right">
-                                <button onclick="deleteCourse(@item?.CourseId)" type="button" class="close" aria-label="Close">
+                                <button onclick="deleteCourse('@item?.CourseId')" type="button" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -77,9 +77,9 @@
             })
         })
 
-                //const deleteCourse = async (id) => {
-
-                //}
+                const deleteCourse = async (id) => {
+                    alert(id);
+                }
 
     </script>
 }
