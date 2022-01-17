@@ -9,11 +9,10 @@
                     {
                         <div class="card col-md-3 mt-2 mx-2" style="width: 18rem;">
                             <div class="float-right">
-                                <button id="Close" type="button" class="close" aria-label="Close">
+                                <button onclick="deleteCourse(@item?.CourseId)" type="button" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-
                             <img class="card-img-top" src=@item.CourseUrl alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">@item.CorseTitle</h5>
@@ -25,7 +24,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">         
+        <div class="col-md-3">
             <form id="addForm" name="AddForm" class="form-check-inline my-2 my-lg-2">
                 <input class="form-control mr-sm-2" type="text" name="Title" placeholder="Category Add" aria-label="Search">
                 <button id="addButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Ekle</button>
@@ -38,8 +37,6 @@
 
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -51,9 +48,7 @@
         $(document).ready(function () {
 
             $("#addForm").on("submit", function (event) {
-                event.preventDefault(); // formu durdur.
-
-
+                event.preventDefault();
 
                 const param = {
                     Title: AddForm.Title.value
@@ -68,8 +63,8 @@
                     success: function (response) {
                         // <a href="#" class="list-group-item list-group-item-action disabled"></a>
                         const listTemplate = `
-                                     <a href="#" class="list-group-item list-group-item-action disabled">${AddForm.Title.value}</a>
-                                    `;
+                             <a href="#" class="list-group-item list-group-item-action disabled">${AddForm.Title.value}</a>
+                                            `;
                         $('#categoryList').prepend(listTemplate);
                         alert(response?.message);
                         console.log("response", response)
@@ -84,7 +79,9 @@
             })
         })
 
+                //const deleteCourse = async (id) => {
+
+                //}
 
     </script>
-
 }

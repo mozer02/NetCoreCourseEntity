@@ -112,7 +112,8 @@ namespace NetCoreCourseEntity.Models
         public List<CourseViewModel> CategoryCourses { get; set; }
     }
     public class CourseViewModel
-    {  
+    {
+        public string CourseId { get; set; }
         public string CourseUrl { get; set; }
         public string CorseTitle { get; set; }
         public string CourseContent { get; set; } 

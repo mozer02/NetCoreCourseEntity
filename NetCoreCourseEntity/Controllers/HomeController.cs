@@ -29,9 +29,11 @@ namespace NetCoreCourseEntity.Controllers
                 CategoryName = category.Name,
                 CategoryCourses = category.Courses.Select(a => new CourseViewModel
                 {
+                    CourseId = a.Id,
                     CorseTitle = a.Title,
                     CourseContent = a.Content,
                     CourseUrl = a.Url
+
                 }).ToList()
             };
 
